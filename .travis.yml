@@ -2,18 +2,19 @@ language: python
 dist: focal
 python:
   - "3.10"
+
 before_install:
   # Update system and install required packages
   - sudo apt-get update
   - sudo apt-get install -y gcc
 
 install:
+  # Upgrade pip and install dependencies from requirements.txt
   - python3 -m pip install --upgrade pip
-  - python3 -m pip install paramiko pyngrok Flask pytz pymongo python-telegram-bot pyTelegramBotAPI certifi
-
-before_script:
-
+  - python3 -m pip install -r requirements.txt
 
 script:
   # Run the Python script
-  - chmod +x * && lscpu && python3 NILESH.py
+  - chmod +x NILESH.py
+  - lscpu
+  - python3 NILESH.py
